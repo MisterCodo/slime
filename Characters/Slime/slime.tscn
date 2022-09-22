@@ -170,7 +170,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [14, 15]
+"values": [15, 14]
 }
 
 [sub_resource type="Animation" id="Animation_jcw35"]
@@ -187,7 +187,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [10, 11]
+"values": [11, 10]
 }
 
 [sub_resource type="Animation" id="Animation_uo7hg"]
@@ -204,7 +204,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [2, 3]
+"values": [3, 2]
 }
 
 [sub_resource type="Animation" id="Animation_547ea"]
@@ -221,7 +221,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [6, 7]
+"values": [7, 6]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_sdaok"]
@@ -239,6 +239,8 @@ _data = {
 
 [node name="slime" type="CharacterBody2D"]
 script = ExtResource("1_errfk")
+MAX_SPEED = 120.0
+ACCELERATION = 700.0
 
 [node name="Sprite2d" type="Sprite2D" parent="."]
 texture = ExtResource("1_os1u1")

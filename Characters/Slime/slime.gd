@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-@export var MAX_SPEED : float = 100
-@export var ACCELERATION : float = 500
+@export var MAX_SPEED : float = 120
+@export var ACCELERATION : float = 700
 @export var FRICTION : float = 1000
 
 @onready var animation_tree = $AnimationTree
