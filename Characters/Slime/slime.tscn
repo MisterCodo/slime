@@ -1,7 +1,8 @@
-[gd_scene load_steps=29 format=3 uid="uid://kj25qgsqq3ws"]
+[gd_scene load_steps=31 format=3 uid="uid://kj25qgsqq3ws"]
 
 [ext_resource type="Script" path="res://Characters/Slime/slime.gd" id="1_errfk"]
 [ext_resource type="Texture2D" uid="uid://bvwd462qr4qqr" path="res://Art/SlimeSpritesheet.png" id="1_os1u1"]
+[ext_resource type="PackedScene" uid="uid://dm2bsgdcqwqvb" path="res://Boxes/hit_box.tscn" id="3_274a7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ktkj"]
 size = Vector2(6, 2.5)
@@ -237,7 +238,12 @@ _data = {
 "walk_up": SubResource("Animation_547ea")
 }
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_li256"]
+radius = 5.0
+height = 14.0
+
 [node name="slime" type="CharacterBody2D"]
+collision_layer = 2
 script = ExtResource("1_errfk")
 MAX_SPEED = 120.0
 ACCELERATION = 700.0
@@ -247,7 +253,6 @@ position = Vector2(0, -2)
 texture = ExtResource("1_os1u1")
 hframes = 4
 vframes = 4
-frame = 8
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="."]
 position = Vector2(0, 0.5)
@@ -268,3 +273,14 @@ libraries = {
 }
 
 [node name="RemoteTransform2d" type="RemoteTransform2D" parent="."]
+
+[node name="hit_box" parent="." instance=ExtResource("3_274a7")]
+collision_layer = 4
+collision_mask = 8
+
+[node name="CollisionShape2d" parent="hit_box" index="0"]
+position = Vector2(0, -1)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_li256")
+
+[editable path="hit_box"]

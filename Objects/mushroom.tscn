@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://dxjhg8guf5sq8"]
+
+[ext_resource type="Script" path="res://Objects/mushroom.gd" id="1_c3g7b"]
+[ext_resource type="Texture2D" uid="uid://cgq5omptm728j" path="res://Art/Mushroom.png" id="1_ysoxi"]
+[ext_resource type="PackedScene" uid="uid://dfkvnmniu68qx" path="res://Boxes/action_box.tscn" id="3_my757"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bu6yd"]
+radius = 6.0
+
+[node name="Mushroom" type="Node2D"]
+script = ExtResource("1_c3g7b")
+
+[node name="Sprite2d" type="Sprite2D" parent="."]
+texture = ExtResource("1_ysoxi")
+
+[node name="ActionBox" parent="." instance=ExtResource("3_my757")]
+collision_layer = 8
+collision_mask = 4
+
+[node name="CollisionShape2d" parent="ActionBox" index="0"]
+shape = SubResource("CircleShape2D_bu6yd")
+
+[connection signal="area_entered" from="ActionBox" to="." method="_on_action_box_area_entered"]
+[connection signal="area_exited" from="ActionBox" to="." method="_on_action_box_area_exited"]
+
+[editable path="ActionBox"]
