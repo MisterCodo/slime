@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dxjhg8guf5sq8"]
+[gd_scene load_steps=7 format=3 uid="uid://dxjhg8guf5sq8"]
 
 [ext_resource type="Script" path="res://Objects/mushroom.gd" id="1_c3g7b"]
 [ext_resource type="Texture2D" uid="uid://cgq5omptm728j" path="res://Art/Mushroom.png" id="1_ysoxi"]
@@ -6,6 +6,26 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bu6yd"]
 radius = 6.0
+
+[sub_resource type="Animation" id="Animation_q7wkf"]
+resource_name = "Shake"
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2d:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, -1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5, 1)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u15no"]
+_data = {
+"Shake": SubResource("Animation_q7wkf")
+}
 
 [node name="Mushroom" type="Node2D"]
 script = ExtResource("1_c3g7b")
@@ -19,6 +39,12 @@ collision_mask = 4
 
 [node name="CollisionShape2d" parent="ActionBox" index="0"]
 shape = SubResource("CircleShape2D_bu6yd")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Shake"
+libraries = {
+"": SubResource("AnimationLibrary_u15no")
+}
 
 [connection signal="area_entered" from="ActionBox" to="." method="_on_action_box_area_entered"]
 [connection signal="area_exited" from="ActionBox" to="." method="_on_action_box_area_exited"]
