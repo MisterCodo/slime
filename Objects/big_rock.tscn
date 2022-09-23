@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bnlr8arb7gsml"]
+
+[ext_resource type="Texture2D" uid="uid://u67h1466qlhm" path="res://Art/BigRock.png" id="1_byipj"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gs65g"]
+radius = 7.0
+height = 34.0
+
+[node name="big_rock" type="StaticBody2D"]
+
+[node name="Sprite2d" type="Sprite2D" parent="."]
+texture = ExtResource("1_byipj")
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="."]
+position = Vector2(1, 6)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_gs65g")

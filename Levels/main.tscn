@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://c1p41tofrxvb5"]
+[gd_scene load_steps=11 format=3 uid="uid://c1p41tofrxvb5"]
 
 [ext_resource type="PackedScene" uid="uid://kj25qgsqq3ws" path="res://Characters/Slime/slime.tscn" id="1_r2xe2"]
 [ext_resource type="Texture2D" uid="uid://bkstgs1a4vfm6" path="res://Art/Grass.png" id="2_0b5v0"]
 [ext_resource type="Texture2D" uid="uid://b0jv6nq1t38ec" path="res://Art/Hills.png" id="3_xkd0f"]
 [ext_resource type="Texture2D" uid="uid://dvw0w625ccslo" path="res://Art/Fences.png" id="4_5qc43"]
+[ext_resource type="PackedScene" uid="uid://bnlr8arb7gsml" path="res://Objects/big_rock.tscn" id="5_baw76"]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_57sng"]
 
@@ -217,6 +218,9 @@ y_sort_enabled = true
 position = Vector2(75, 91)
 y_sort_enabled = true
 
+[node name="Sprite2d" parent="slime" index="0"]
+frame = 0
+
 [node name="AnimationTree" parent="slime" index="2"]
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_57sng")
 
@@ -251,5 +255,8 @@ layer_2/y_sort_origin = 0
 layer_2/z_index = 0
 layer_2/tile_data = PackedInt32Array(-11, 65538, 0, -10, 131074, 3, -9, 131074, 3, -8, 131074, 3, -7, 131074, 3, -6, 131074, 3, -5, 131074, 3, -4, 131074, 3, -3, 131074, 3, -2, 131074, 3, -1, 131074, 3, -65536, 131074, 3, -65535, 131074, 3, -65534, 131074, 3, -65533, 131074, 3, -65532, 131074, 3, -65531, 131074, 3, -65530, 131074, 3, -65529, 131074, 3, -65528, 131074, 3, -65527, 131074, 3, -65526, 131074, 3, -65525, 131074, 3, -65524, 131074, 3, -65523, 131074, 3, -65522, 131074, 3, -65521, 131074, 3, -65520, 131074, 3, -65519, 131074, 3, -65518, 131074, 3, -65517, 131074, 3, -65516, 131074, 3, -65515, 196610, 0, 65525, 2, 2, 131061, 2, 2, 196597, 2, 2, 262133, 2, 2, 327669, 2, 2, 393205, 2, 2, 458741, 2, 2, 524277, 2, 2, 589813, 2, 2, 655349, 2, 2, 720885, 2, 2, 786421, 2, 2, 851957, 2, 2, 21, 2, 2, 65557, 2, 2, 131093, 2, 2, 196629, 2, 2, 262165, 2, 2, 327701, 2, 2, 393237, 2, 2, 458773, 2, 2, 524309, 2, 2, 589845, 2, 2, 655381, 2, 2, 720917, 2, 2, 786453, 2, 2, 851989, 196610, 2, 851988, 131074, 3, 851987, 131074, 3, 851986, 131074, 3, 851985, 131074, 3, 851984, 131074, 3, 851983, 131074, 3, 851982, 131074, 3, 851981, 131074, 3, 851980, 131074, 3, 851979, 131074, 3, 851978, 131074, 3, 851977, 131074, 3, 851976, 131074, 3, 851975, 131074, 3, 851974, 131074, 3, 851973, 131074, 3, 851972, 131074, 3, 851971, 131074, 3, 851970, 131074, 3, 851969, 131074, 3, 851968, 131074, 3, 917503, 131074, 3, 917502, 131074, 3, 917501, 131074, 3, 917500, 131074, 3, 917499, 131074, 3, 917498, 131074, 3, 917497, 131074, 3, 917496, 131074, 3, 917495, 131074, 3, 917494, 131074, 3, 917493, 65538, 2, 589818, 65538, 0, 589822, 196610, 0, 786426, 65538, 2, 786430, 196610, 2, 786429, 131074, 3, 786428, 131074, 3, 786427, 131074, 3, 589821, 131074, 3, 589820, 131074, 3, 589819, 131074, 3, 720890, 2, 2, 655354, 2, 2, 720894, 2, 2, 655358, 2, 2)
 metadata/_edit_lock_ = true
+
+[node name="big_rock" parent="." instance=ExtResource("5_baw76")]
+position = Vector2(56, 174)
 
 [editable path="slime"]
