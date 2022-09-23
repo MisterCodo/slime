@@ -243,12 +243,13 @@ MAX_SPEED = 120.0
 ACCELERATION = 700.0
 
 [node name="Sprite2d" type="Sprite2D" parent="."]
+position = Vector2(0, -2)
 texture = ExtResource("1_os1u1")
 hframes = 4
 vframes = 4
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="."]
-position = Vector2(0, 2.5)
+position = Vector2(0, 0.5)
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_1ktkj")
 
