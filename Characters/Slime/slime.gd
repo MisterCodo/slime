@@ -4,6 +4,15 @@ extends CharacterBody2D
 @export var ACCELERATION : float = 700
 @export var FRICTION : float = 1000
 
+enum SlimeClass {
+	NORMAL,
+	RADIOACTIVE
+}
+var slime_class = SlimeClass.NORMAL
+var texture_normal = preload("res://Art/SlimeSpritesheet.png")
+var texture_radioactive = preload("res://Art/SlimeSpritesheetRadioactive.png")
+
+@onready var sprite2d_texture = $Sprite2d
 @onready var animation_tree = $AnimationTree
 @onready var animation_state = animation_tree.get("parameters/playback")
 
@@ -11,6 +20,17 @@ func _ready():
 	pass
 	
 func _physics_process(delta):
+	# look for change slime class action
+	if Input.is_action_just_pressed("change_slime_class"):
+		match slime_class:
+			SlimeClass.NORMAL:
+				slime_class = SlimeClass.RADIOACTIVE
+				sprite2d_texture.set_texture(texture_radioactive)
+			SlimeClass.RADIOACTIVE:
+				slime_class = SlimeClass.NORMAL
+				sprite2d_texture.set_texture(texture_normal)
+		
+	# move slime based on input direction
 	var input_direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	
 	if input_direction == Vector2.ZERO:
