@@ -1,0 +1,76 @@
+[gd_scene load_steps=8 format=3 uid="uid://oeif1ssvif5s"]
+
+[ext_resource type="Script" path="res://UI/TitleScreen.gd" id="1_2dw3d"]
+[ext_resource type="Texture2D" uid="uid://7nu8lvoqsb0c" path="res://Art/Logo.png" id="1_x0ibs"]
+[ext_resource type="PackedScene" uid="uid://clmma5dc4ch0h" path="res://UI/NewGame.tscn" id="2_mm313"]
+[ext_resource type="PackedScene" uid="uid://bs7aj4ca264m2" path="res://UI/Continue.tscn" id="3_k8hc3"]
+[ext_resource type="PackedScene" uid="uid://hffmlbivlqqf" path="res://UI/Options.tscn" id="4_ogi0y"]
+[ext_resource type="PackedScene" uid="uid://r4gw7624ecoe" path="res://UI/Quit.tscn" id="5_qacgq"]
+[ext_resource type="PackedScene" uid="uid://dgqa4320xelr6" path="res://UI/Fade.tscn" id="7_6tts4"]
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2dw3d")
+
+[node name="Menu" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 80.0
+offset_right = 1820.0
+offset_bottom = 1000.0
+
+[node name="Logo" type="TextureRect" parent="Menu"]
+layout_mode = 2
+offset_right = 1720.0
+offset_bottom = 100.0
+texture = ExtResource("1_x0ibs")
+stretch_mode = 3
+
+[node name="Center" type="HBoxContainer" parent="Menu"]
+layout_mode = 2
+offset_top = 104.0
+offset_right = 1720.0
+offset_bottom = 920.0
+size_flags_vertical = 3
+
+[node name="Buttons" type="VBoxContainer" parent="Menu/Center"]
+layout_mode = 2
+offset_top = 282.0
+offset_right = 1720.0
+offset_bottom = 534.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="NewGame" parent="Menu/Center/Buttons" instance=ExtResource("2_mm313")]
+layout_mode = 2
+offset_bottom = 60.0
+flat = false
+
+[node name="Continue" parent="Menu/Center/Buttons" instance=ExtResource("3_k8hc3")]
+layout_mode = 2
+offset_top = 64.0
+offset_bottom = 124.0
+
+[node name="Options" parent="Menu/Center/Buttons" instance=ExtResource("4_ogi0y")]
+layout_mode = 2
+offset_top = 128.0
+offset_bottom = 188.0
+
+[node name="Quit" parent="Menu/Center/Buttons" instance=ExtResource("5_qacgq")]
+layout_mode = 2
+offset_top = 192.0
+offset_bottom = 252.0
+
+[node name="Fade" parent="." instance=ExtResource("7_6tts4")]
+layout_mode = 1
+
+[connection signal="pressed" from="Menu/Center/Buttons/NewGame" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="Menu/Center/Buttons/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="Menu/Center/Buttons/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Menu/Center/Buttons/Quit" to="." method="_on_quit_pressed"]
+[connection signal="fade_finished" from="Fade" to="." method="_on_fade_fade_finished"]
