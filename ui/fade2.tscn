@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dgqa4320xelr6"]
 
-[ext_resource type="Script" path="res://UI/Fade.gd" id="1_7cp4f"]
+[ext_resource type="Script" path="res://ui/fade.gd" id="1_7cp4f"]
 
 [sub_resource type="Animation" id="Animation_d8bn4"]
 resource_name = "fade"

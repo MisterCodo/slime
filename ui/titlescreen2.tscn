@@ -1,12 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://drsmsv6e0r120"]
+[gd_scene load_steps=8 format=3 uid="uid://dawam6sm2tli1"]
 
-[ext_resource type="Script" path="res://UI/TitleScreen.gd" id="1_2dw3d"]
+[ext_resource type="Script" path="res://ui/titlescreen.gd" id="1_2dw3d"]
 [ext_resource type="Texture2D" uid="uid://7nu8lvoqsb0c" path="res://assets/logo.png" id="1_x0ibs"]
-[ext_resource type="PackedScene" uid="uid://clmma5dc4ch0h" path="res://ui/NewGame.tscn" id="2_mm313"]
-[ext_resource type="PackedScene" uid="uid://bs7aj4ca264m2" path="res://ui/Continue.tscn" id="3_k8hc3"]
-[ext_resource type="PackedScene" uid="uid://hffmlbivlqqf" path="res://ui/Options.tscn" id="4_ogi0y"]
-[ext_resource type="PackedScene" uid="uid://r4gw7624ecoe" path="res://ui/Quit.tscn" id="5_qacgq"]
-[ext_resource type="PackedScene" uid="uid://dgqa4320xelr6" path="res://ui/Fade.tscn" id="7_6tts4"]
+[ext_resource type="PackedScene" path="res://ui/newgame.tscn" id="2_mm313"]
+[ext_resource type="PackedScene" path="res://ui/continue.tscn" id="3_k8hc3"]
+[ext_resource type="PackedScene" path="res://ui/options.tscn" id="4_ogi0y"]
+[ext_resource type="PackedScene" path="res://ui/quit.tscn" id="5_qacgq"]
+[ext_resource type="PackedScene" uid="uid://dgqa4320xelr6" path="res://ui/fade.tscn" id="7_6tts4"]
 
 [node name="TitleScreen" type="Control"]
 layout_mode = 3
