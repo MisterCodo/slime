@@ -1,15 +1,14 @@
 extends CharacterBody2D
 
 
-@export var MAX_SPEED : float = 120
-@export var ACCELERATION : float = 700
-@export var FRICTION : float = 1000
-
-
 enum SlimeClass {
 	NORMAL,
 	RADIOACTIVE
 }
+
+@export var MAX_SPEED : float = 120
+@export var ACCELERATION : float = 700
+@export var FRICTION : float = 1000
 
 
 var slime_class = SlimeClass.NORMAL
