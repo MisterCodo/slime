@@ -1,7 +1,0 @@
-[gd_scene format=3 uid="uid://dfkvnmniu68qx"]
-
-[node name="ActionBox" type="Area2D"]
-collision_layer = 0
-collision_mask = 0
-
-[node name="CollisionShape2d" type="CollisionShape2D" parent="."]
