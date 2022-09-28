@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0jv6nq1t38ec"
-path="res://.godot/imported/Hills.png-bd2df623797476668b923dac5a380780.ctex"
+uid="uid://u67h1466qlhm"
+path="res://.godot/imported/big_rock.png-1915da12a1440df8cf3ae536bcedf294.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Hills.png"
-dest_files=["res://.godot/imported/Hills.png-bd2df623797476668b923dac5a380780.ctex"]
+source_file="res://assets/big_rock.png"
+dest_files=["res://.godot/imported/big_rock.png-1915da12a1440df8cf3ae536bcedf294.ctex"]
 
 [params]
 

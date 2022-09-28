@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bigl6rto6ugk6"
-path="res://.godot/imported/SlimeSpritesheetRadioactive.png-30ba20131942329053813b4c8bcfb6e8.ctex"
+uid="uid://bkstgs1a4vfm6"
+path="res://.godot/imported/grass.png-a207bda4a53e32c7645a41ec6d1c234e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/SlimeSpritesheetRadioactive.png"
-dest_files=["res://.godot/imported/SlimeSpritesheetRadioactive.png-30ba20131942329053813b4c8bcfb6e8.ctex"]
+source_file="res://assets/grass.png"
+dest_files=["res://.godot/imported/grass.png-a207bda4a53e32c7645a41ec6d1c234e.ctex"]
 
 [params]
 

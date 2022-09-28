@@ -1,8 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dxjhg8guf5sq8"]
+[gd_scene load_steps=7 format=3]
 
-[ext_resource type="Script" path="res://Objects/mushroom.gd" id="1_c3g7b"]
-[ext_resource type="Texture2D" uid="uid://cgq5omptm728j" path="res://Art/Mushroom.png" id="1_ysoxi"]
-[ext_resource type="PackedScene" uid="uid://dfkvnmniu68qx" path="res://Boxes/action_box.tscn" id="3_my757"]
+[ext_resource type="Script" path="res://objects/mushroom.gd" id="1_c3g7b"]
+[ext_resource type="Texture2D" uid="uid://cgq5omptm728j" path="res://assets/mushroom.png" id="1_ysoxi"]
+[ext_resource type="PackedScene" uid="uid://dfkvnmniu68qx" path="res://boxes/action_box.tscn" id="3_my757"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bu6yd"]
 radius = 6.0

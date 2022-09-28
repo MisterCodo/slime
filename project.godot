@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="slime"
-run/main_scene="res://UI/TitleScreen.tscn"
+run/main_scene="res://ui/TitleScreen.tscn"
 config/features=PackedStringArray("4.0", "Vulkan Mobile")
 config/icon="res://icon.svg"
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgq5omptm728j"
-path="res://.godot/imported/Mushroom.png-bd3a1f285c060d22fb90d1567ce4a34c.ctex"
+uid="uid://b0jv6nq1t38ec"
+path="res://.godot/imported/hills.png-f359fcb94190e071a8a611940b36a827.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Mushroom.png"
-dest_files=["res://.godot/imported/Mushroom.png-bd3a1f285c060d22fb90d1567ce4a34c.ctex"]
+source_file="res://assets/hills.png"
+dest_files=["res://.godot/imported/hills.png-f359fcb94190e071a8a611940b36a827.ctex"]
 
 [params]
 

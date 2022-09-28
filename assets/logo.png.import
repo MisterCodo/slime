@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://u67h1466qlhm"
-path="res://.godot/imported/BigRock.png-5c469b38460bc139397cf4d57d3f8c1c.ctex"
+uid="uid://7nu8lvoqsb0c"
+path="res://.godot/imported/logo.png-e2220799298e3631eb0e245316e0501a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/BigRock.png"
-dest_files=["res://.godot/imported/BigRock.png-5c469b38460bc139397cf4d57d3f8c1c.ctex"]
+source_file="res://assets/logo.png"
+dest_files=["res://.godot/imported/logo.png-e2220799298e3631eb0e245316e0501a.ctex"]
 
 [params]
 
