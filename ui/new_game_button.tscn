@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0briirwr8btc"]
+
+[ext_resource type="PackedScene" uid="uid://dked3qtlchhg6" path="res://ui/menu_button.tscn" id="1_vkx17"]
+
+[node name="NewGame" instance=ExtResource("1_vkx17")]
+
+[node name="Label" parent="." index="0"]
+text = "Start New Game"
