@@ -1,5 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://bxuybxu0e1u6x"]
+[gd_scene load_steps=13 format=3 uid="uid://bxuybxu0e1u6x"]
 
+[ext_resource type="PackedScene" uid="uid://ceyarrxmwn2ql" path="res://ui/pause_screen/pause_screen.tscn" id="1_fxajr"]
 [ext_resource type="PackedScene" uid="uid://dbwpwqd6ofri4" path="res://characters/slime/slime.tscn" id="1_r2xe2"]
 [ext_resource type="Texture2D" uid="uid://bkstgs1a4vfm6" path="res://assets/grass.png" id="2_0b5v0"]
 [ext_resource type="Texture2D" uid="uid://b0jv6nq1t38ec" path="res://assets/hills.png" id="3_xkd0f"]
@@ -215,6 +216,10 @@ sources/2 = SubResource("TileSetAtlasSource_7e428")
 [node name="Main" type="Node2D"]
 position = Vector2(96, 54)
 y_sort_enabled = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseScreen" parent="CanvasLayer" instance=ExtResource("1_fxajr")]
 
 [node name="Slime" parent="." instance=ExtResource("1_r2xe2")]
 position = Vector2(75, 91)
