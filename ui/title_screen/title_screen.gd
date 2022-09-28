@@ -1,6 +1,10 @@
 extends Control
 
 
+func _ready():
+	$Menu/Center/Buttons/NewGame.grab_focus()
+
+
 func _on_new_game_pressed():
 	get_tree().change_scene_to_file("res://ui/title_screen/scenes/new_game.tscn")
 

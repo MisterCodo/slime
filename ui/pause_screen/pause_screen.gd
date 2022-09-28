@@ -8,6 +8,8 @@ var paused: bool = false:
 		paused = value
 		get_tree().paused = paused
 		visible = paused
+		if paused:
+			$Center/Buttons/Resume.grab_focus()
 
 
 func _unhandled_input(event):

@@ -44,24 +44,35 @@ size_flags_vertical = 4
 
 [node name="NewGame" parent="Menu/Center/Buttons" instance=ExtResource("3_cfqpm")]
 offset_bottom = 60.0
+focus_neighbor_top = NodePath("../Quit")
+focus_neighbor_bottom = NodePath("../Load")
 flat = false
 
-[node name="Continue" parent="Menu/Center/Buttons" instance=ExtResource("4_qhlj6")]
+[node name="Load" parent="Menu/Center/Buttons" instance=ExtResource("4_qhlj6")]
 offset_top = 64.0
 offset_bottom = 124.0
+focus_neighbor_top = NodePath("../NewGame")
+focus_neighbor_bottom = NodePath("../Options")
+flat = false
 
 [node name="Options" parent="Menu/Center/Buttons" instance=ExtResource("5_ohu8a")]
 offset_top = 128.0
 offset_bottom = 188.0
+focus_neighbor_top = NodePath("../Load")
+focus_neighbor_bottom = NodePath("../Quit")
+flat = false
 
 [node name="Quit" parent="Menu/Center/Buttons" instance=ExtResource("6_qbfj5")]
 offset_top = 192.0
 offset_bottom = 252.0
+focus_neighbor_top = NodePath("../Options")
+focus_neighbor_bottom = NodePath("../NewGame")
+flat = false
 
 [node name="Fade" parent="." instance=ExtResource("7_01r1b")]
 
 [connection signal="pressed" from="Menu/Center/Buttons/NewGame" to="." method="_on_new_game_pressed"]
-[connection signal="pressed" from="Menu/Center/Buttons/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="Menu/Center/Buttons/Load" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="Menu/Center/Buttons/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="Menu/Center/Buttons/Quit" to="." method="_on_quit_pressed"]
 [connection signal="fade_finished" from="Fade" to="." method="_on_fade_fade_finished"]

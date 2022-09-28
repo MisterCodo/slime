@@ -60,12 +60,18 @@ layout_mode = 2
 offset_top = 54.0
 offset_right = 480.0
 offset_bottom = 114.0
+focus_neighbor_top = NodePath("../Quit")
+focus_neighbor_bottom = NodePath("../Quit")
+flat = false
 
-[node name="QuitButton" parent="Center/Buttons" instance=ExtResource("2_bnokb")]
+[node name="Quit" parent="Center/Buttons" instance=ExtResource("2_bnokb")]
 layout_mode = 2
 offset_top = 118.0
 offset_right = 480.0
 offset_bottom = 178.0
+focus_neighbor_top = NodePath("../Resume")
+focus_neighbor_bottom = NodePath("../Resume")
+flat = false
 
 [connection signal="pressed" from="Center/Buttons/Resume" to="." method="_on_resume_pressed"]
-[connection signal="pressed" from="Center/Buttons/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="Center/Buttons/Quit" to="." method="_on_quit_button_pressed"]
