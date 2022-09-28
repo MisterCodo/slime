@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3]
+[gd_scene load_steps=7 format=3 uid="uid://1clcfmc0j8mg"]
 
 [ext_resource type="Script" path="res://objects/mushroom.gd" id="1_c3g7b"]
 [ext_resource type="Texture2D" uid="uid://cgq5omptm728j" path="res://assets/mushroom.png" id="1_ysoxi"]

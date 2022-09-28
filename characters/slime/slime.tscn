@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3]
+[gd_scene load_steps=31 format=3 uid="uid://dbwpwqd6ofri4"]
 
 [ext_resource type="Script" path="res://characters/slime/slime.gd" id="1_errfk"]
 [ext_resource type="Texture2D" uid="uid://bvwd462qr4qqr" path="res://assets/slime.png" id="1_os1u1"]
@@ -242,7 +242,7 @@ _data = {
 radius = 5.0
 height = 14.0
 
-[node name="slime" type="CharacterBody2D"]
+[node name="Slime" type="CharacterBody2D"]
 collision_layer = 2
 script = ExtResource("1_errfk")
 MAX_SPEED = 120.0
@@ -274,13 +274,13 @@ libraries = {
 
 [node name="RemoteTransform2d" type="RemoteTransform2D" parent="."]
 
-[node name="hit_box" parent="." instance=ExtResource("3_274a7")]
+[node name="HitBox" parent="." instance=ExtResource("3_274a7")]
 collision_layer = 4
 collision_mask = 8
 
-[node name="CollisionShape2d" parent="hit_box" index="0"]
+[node name="CollisionShape2d" parent="HitBox" index="0"]
 position = Vector2(0, -1)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_li256")
 
-[editable path="hit_box"]
+[editable path="HitBox"]

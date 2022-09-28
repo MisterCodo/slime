@@ -6,6 +6,7 @@ enum SlimeClass {
 	RADIOACTIVE
 }
 
+
 @export var MAX_SPEED : float = 120
 @export var ACCELERATION : float = 700
 @export var FRICTION : float = 1000

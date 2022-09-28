@@ -1,12 +1,12 @@
 [gd_scene load_steps=3 format=3 uid="uid://808t84oabbsf"]
 
-[ext_resource type="Texture2D" path="res://assets/big_rock.png" id="1_byipj"]
+[ext_resource type="Texture2D" uid="uid://u67h1466qlhm" path="res://assets/big_rock.png" id="1_byipj"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gs65g"]
 radius = 7.0
 height = 32.0
 
-[node name="big_rock" type="StaticBody2D"]
+[node name="BigRock" type="StaticBody2D"]
 
 [node name="Sprite2d" type="Sprite2D" parent="."]
 position = Vector2(-2, -4)

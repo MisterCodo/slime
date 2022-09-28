@@ -1,8 +1,9 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=2 format=3 uid="uid://b1i2dwtrdcvvo"]
 
-[ext_resource type="PackedScene" path="res://ui/menu_button.tscn" id="1_wr2s3"]
+[ext_resource type="PackedScene" uid="uid://dked3qtlchhg6" path="res://ui/menu_button.tscn" id="1_wr2s3"]
 
 [node name="Options" instance=ExtResource("1_wr2s3")]
 
 [node name="Label" parent="." index="0"]
+layout_mode = 3
 text = "Options"
