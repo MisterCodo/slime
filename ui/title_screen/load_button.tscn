@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://rfollf2yfxhs"]
+
+[ext_resource type="PackedScene" uid="uid://dked3qtlchhg6" path="res://ui/menu_button.tscn" id="1_7wnde"]
+
+[node name="Load" instance=ExtResource("1_7wnde")]
+
+[node name="Label" parent="." index="0"]
+layout_mode = 3
+text = "Load"

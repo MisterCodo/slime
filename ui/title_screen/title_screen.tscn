@@ -1,11 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://c3tq1o8xav8ky"]
+[gd_scene load_steps=8 format=3 uid="uid://c7fors66tpr7g"]
 
-[ext_resource type="Script" path="res://ui/title_screen.gd" id="1_m0g57"]
+[ext_resource type="Script" path="res://ui/title_screen/title_screen.gd" id="1_m0g57"]
 [ext_resource type="Texture2D" uid="uid://7nu8lvoqsb0c" path="res://assets/logo.png" id="2_7bst2"]
-[ext_resource type="PackedScene" uid="uid://bcm46hfrtt6pi" path="res://ui/new_game_button.tscn" id="3_cfqpm"]
-[ext_resource type="PackedScene" path="res://ui/continue_button.tscn" id="4_qhlj6"]
-[ext_resource type="PackedScene" path="res://ui/options_button.tscn" id="5_ohu8a"]
-[ext_resource type="PackedScene" path="res://ui/quit_button.tscn" id="6_qbfj5"]
+[ext_resource type="PackedScene" uid="uid://b0briirwr8btc" path="res://ui/title_screen/new_game_button.tscn" id="3_cfqpm"]
+[ext_resource type="PackedScene" uid="uid://rfollf2yfxhs" path="res://ui/title_screen/load_button.tscn" id="4_qhlj6"]
+[ext_resource type="PackedScene" path="res://ui/title_screen/options_button.tscn" id="5_ohu8a"]
+[ext_resource type="PackedScene" path="res://ui/title_screen/quit_button.tscn" id="6_qbfj5"]
 [ext_resource type="PackedScene" uid="uid://dgqa4320xelr6" path="res://ui/fade.tscn" id="7_01r1b"]
 
 [node name="TitleScreen" type="Control"]

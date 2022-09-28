@@ -2,7 +2,7 @@ extends Control
 
 
 func _on_new_game_pressed():
-	get_tree().change_scene_to_file("res://ui/scenes/new_game.tscn")
+	get_tree().change_scene_to_file("res://ui/title_screen/scenes/new_game.tscn")
 
 
 func _on_continue_pressed():
@@ -10,7 +10,7 @@ func _on_continue_pressed():
 
 
 func _on_options_pressed():
-	get_tree().change_scene_to_file("res://ui/scenes/options.tscn")
+	get_tree().change_scene_to_file("res://ui/title_screen/scenes/options.tscn")
 
 
 func _on_quit_pressed():
