@@ -16,6 +16,10 @@ config/use_custom_user_dir=true
 config/features=PackedStringArray("4.0", "Vulkan Mobile")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Global="*res://global.gd"
+
 [display]
 
 window/size/viewport_width=1920

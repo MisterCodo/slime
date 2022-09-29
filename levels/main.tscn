@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://bxuybxu0e1u6x"]
+[gd_scene load_steps=14 format=3 uid="uid://bxuybxu0e1u6x"]
 
 [ext_resource type="PackedScene" uid="uid://ceyarrxmwn2ql" path="res://ui/pause_screen/pause_screen.tscn" id="1_fxajr"]
 [ext_resource type="PackedScene" uid="uid://dbwpwqd6ofri4" path="res://characters/slime/slime.tscn" id="1_r2xe2"]
+[ext_resource type="Script" path="res://levels/main.gd" id="1_w75di"]
 [ext_resource type="Texture2D" uid="uid://bkstgs1a4vfm6" path="res://assets/grass.png" id="2_0b5v0"]
 [ext_resource type="Texture2D" uid="uid://b0jv6nq1t38ec" path="res://assets/hills.png" id="3_xkd0f"]
 [ext_resource type="Texture2D" uid="uid://dvw0w625ccslo" path="res://assets/fences.png" id="4_5qc43"]
@@ -216,6 +217,7 @@ sources/2 = SubResource("TileSetAtlasSource_7e428")
 [node name="Main" type="Node2D"]
 position = Vector2(96, 54)
 y_sort_enabled = true
+script = ExtResource("1_w75di")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
