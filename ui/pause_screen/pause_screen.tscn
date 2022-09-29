@@ -62,7 +62,7 @@ offset_top = 54.0
 offset_right = 480.0
 offset_bottom = 114.0
 focus_neighbor_top = NodePath("../Quit")
-focus_neighbor_bottom = NodePath("../Quit")
+focus_neighbor_bottom = NodePath("../Save")
 flat = false
 
 [node name="Save" parent="Center/Buttons" instance=ExtResource("3_ix785")]
@@ -70,6 +70,8 @@ layout_mode = 2
 offset_top = 118.0
 offset_right = 480.0
 offset_bottom = 178.0
+focus_neighbor_top = NodePath("../Resume")
+focus_neighbor_bottom = NodePath("../Quit")
 flat = false
 
 [node name="Quit" parent="Center/Buttons" instance=ExtResource("2_bnokb")]
@@ -77,7 +79,7 @@ layout_mode = 2
 offset_top = 182.0
 offset_right = 480.0
 offset_bottom = 242.0
-focus_neighbor_top = NodePath("../Resume")
+focus_neighbor_top = NodePath("../Save")
 focus_neighbor_bottom = NodePath("../Resume")
 flat = false
 
