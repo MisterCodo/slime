@@ -11,6 +11,7 @@ func _on_new_game_pressed():
 
 func _on_continue_pressed():
 	$Fade.fade()
+	# fade emits a signal when done, see _on_fade_fade_finished() func below
 
 
 func _on_options_pressed():

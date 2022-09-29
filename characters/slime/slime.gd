@@ -49,3 +49,15 @@ func _physics_process(delta):
 		
 	set_velocity(velocity)
 	move_and_slide()
+
+
+func save():
+	# Slime is part of the Persist group and its data can be saved to be loaded at a later time
+	var save_dict = {
+		"scene_file_path" : scene_file_path,
+		"parent" : get_parent().get_path(),
+		"pos_x" : position.x, # Vector2 is not supported by JSON
+		"pos_y" : position.y,
+		"max_speed": MAX_SPEED
+	}
+	return save_dict

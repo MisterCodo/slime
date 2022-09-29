@@ -221,7 +221,7 @@ y_sort_enabled = true
 
 [node name="PauseScreen" parent="CanvasLayer" instance=ExtResource("1_fxajr")]
 
-[node name="Slime" parent="." instance=ExtResource("1_r2xe2")]
+[node name="Slime" parent="." groups=["Persist"] instance=ExtResource("1_r2xe2")]
 position = Vector2(75, 91)
 y_sort_enabled = true
 

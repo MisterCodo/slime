@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://ceyarrxmwn2ql"]
+[gd_scene load_steps=5 format=3 uid="uid://ceyarrxmwn2ql"]
 
 [ext_resource type="PackedScene" uid="uid://d4ag3aa8ov4il" path="res://ui/pause_screen/resume_button.tscn" id="1_70p3l"]
 [ext_resource type="Script" path="res://ui/pause_screen/pause_screen.gd" id="1_75dcu"]
 [ext_resource type="PackedScene" uid="uid://b0kw1q034s8bt" path="res://ui/pause_screen/quit_button.tscn" id="2_bnokb"]
+[ext_resource type="PackedScene" uid="uid://dp6warl18ju27" path="res://ui/pause_screen/save_button.tscn" id="3_ix785"]
 
 [node name="PauseScreen" type="Control"]
 process_mode = 3
@@ -35,9 +36,9 @@ grow_vertical = 2
 [node name="Buttons" type="VBoxContainer" parent="Center"]
 layout_mode = 2
 offset_left = 720.0
-offset_top = 451.0
+offset_top = 419.0
 offset_right = 1200.0
-offset_bottom = 629.0
+offset_bottom = 661.0
 
 [node name="Paused" type="Label" parent="Center/Buttons"]
 layout_mode = 2
@@ -64,14 +65,22 @@ focus_neighbor_top = NodePath("../Quit")
 focus_neighbor_bottom = NodePath("../Quit")
 flat = false
 
-[node name="Quit" parent="Center/Buttons" instance=ExtResource("2_bnokb")]
+[node name="Save" parent="Center/Buttons" instance=ExtResource("3_ix785")]
 layout_mode = 2
 offset_top = 118.0
 offset_right = 480.0
 offset_bottom = 178.0
+flat = false
+
+[node name="Quit" parent="Center/Buttons" instance=ExtResource("2_bnokb")]
+layout_mode = 2
+offset_top = 182.0
+offset_right = 480.0
+offset_bottom = 242.0
 focus_neighbor_top = NodePath("../Resume")
 focus_neighbor_bottom = NodePath("../Resume")
 flat = false
 
 [connection signal="pressed" from="Center/Buttons/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Center/Buttons/Save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="Center/Buttons/Quit" to="." method="_on_quit_button_pressed"]
