@@ -22,7 +22,7 @@ func _on_resume_pressed():
 
 
 func _on_save_pressed():
-	Global.save()
+	Global.save_game()
 
 
 func _on_quit_button_pressed():

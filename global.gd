@@ -1,12 +1,12 @@
 extends Node
 
 
-var save_file = "savegame.save"
+var save_file = ""
 
 
-func save():
+func save_game():
 	var save_game = File.new()
-	save_game.open("user://savegame.save", File.WRITE)
+	save_game.open(save_file, File.WRITE)
 	var save_nodes = get_tree().get_nodes_in_group("Persist")
 	for node in save_nodes:
 		# Check the node is an instanced scene so it can be instanced again during load.
@@ -27,28 +27,35 @@ func save():
 	save_game.close()
 
 
-func load():
+func load_game():
 	if save_file.is_empty():
 		# New game
-		# TODO: generate a new unique save filename
+		var rand=RandomNumberGenerator.new()
+		rand.randomize()
+		while true:
+			var game_id = randi()
+			save_file = "user://save_%d.json" % game_id
+			if not save_file_exists(save_file):
+				break
+			# TODO: maybe put a limit of tries here instead of infinite
+		print(save_file)
 		return
 	
 	# Load data from disk
-	var save_game = File.new()
-	if not save_game.file_exists("user://savegame.save"):
+	if not save_file_exists(save_file):
+		print("Error, save file not found")
 		return # Error! We don't have a save to load.
 	
 	# We need to revert the game state so we're not cloning objects
-	# during loading. This will vary wildly depending on the needs of a
-	# project, so take care with this step.
-	# For our example, we will accomplish this by deleting saveable objects.
+	# during loading. We will accomplish this by deleting saveable objects.
 	var save_nodes = get_tree().get_nodes_in_group("Persist")
 	for i in save_nodes:
 		i.queue_free()
 	
 	# Load the file line by line and process that dictionary to restore
 	# the object it represents.
-	save_game.open("user://savegame.save", File.READ)
+	var save_game = File.new()
+	save_game.open(save_file, File.READ)
 	var node_line = save_game.get_line()
 	while not node_line.is_empty():
 		# Get the saved dictionary from the next line in the save file
@@ -68,3 +75,8 @@ func load():
 			new_object.set(i, node_data[i])
 		
 	save_game.close()
+
+
+func save_file_exists(filename):
+	var save_game = File.new()
+	return save_game.file_exists(filename)
