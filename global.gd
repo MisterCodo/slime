@@ -5,8 +5,8 @@ var save_file = ""
 
 
 func save_game():
-	var save_game = File.new()
-	save_game.open(save_file, File.WRITE)
+	var save_game_file = File.new()
+	save_game_file.open(save_file, File.WRITE)
 	var save_nodes = get_tree().get_nodes_in_group("Persist")
 	for node in save_nodes:
 		# Check the node is an instanced scene so it can be instanced again during load.
@@ -23,8 +23,8 @@ func save_game():
 		var node_data = node.call("save")
 
 		# Store the save dictionary as a new line in the save file.
-		save_game.store_line(JSON.stringify(node_data))
-	save_game.close()
+		save_game_file.store_line(JSON.stringify(node_data))
+	save_game_file.close()
 
 
 func load_game():
@@ -54,13 +54,13 @@ func load_game():
 	
 	# Load the file line by line and process that dictionary to restore
 	# the object it represents.
-	var save_game = File.new()
-	save_game.open(save_file, File.READ)
-	var node_line = save_game.get_line()
+	var save_game_file = File.new()
+	save_game_file.open(save_file, File.READ)
+	var node_line = save_game_file.get_line()
 	while not node_line.is_empty():
 		# Get the saved dictionary from the next line in the save file
 		var node_data = JSON.parse_string(node_line)
-		node_line = save_game.get_line()
+		node_line = save_game_file.get_line()
 		
 		# Firstly, we need to create the object and add it to the tree and set its position.
 		var new_object = load(node_data["scene_file_path"]).instantiate()
@@ -74,9 +74,27 @@ func load_game():
 				continue
 			new_object.set(i, node_data[i])
 		
-	save_game.close()
+	save_game_file.close()
 
 
 func save_file_exists(filename):
-	var save_game = File.new()
-	return save_game.file_exists(filename)
+	var save_game_file = File.new()
+	return save_game_file.file_exists(filename)
+
+
+func list_save_files():
+	# Iterates through files and checks if it's a save file
+	var regex = RegEx.new()
+	regex.compile("^save_\\d+\\.json$")
+	var dir = Directory.new()
+	if dir.open("user://") == OK:
+		dir.list_dir_begin()
+		var file_name = dir.get_next()
+		while file_name != "":
+			if not dir.current_is_dir():
+				var regex_match = regex.search(file_name)
+				if regex_match:
+					print("Save file: " + file_name)
+			file_name = dir.get_next()
+	else:
+		print("An error occurred when trying to access save files path.")
