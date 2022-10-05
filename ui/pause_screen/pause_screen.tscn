@@ -86,3 +86,5 @@ flat = false
 [connection signal="pressed" from="Center/Buttons/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="Center/Buttons/Save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="Center/Buttons/Quit" to="." method="_on_quit_button_pressed"]
+
+[editable path="Center/Buttons/Save"]

@@ -6,7 +6,11 @@ var save_file = ""
 
 func save_game():
 	var save_game_file = File.new()
-	save_game_file.open(save_file, File.WRITE)
+	var err = save_game_file.open(save_file, File.WRITE)
+	if err != OK:
+		push_error("Could not save to file %s. Error %d" % [save_file, err])
+		return false
+	
 	var save_nodes = get_tree().get_nodes_in_group("Persist")
 	for node in save_nodes:
 		# Check the node is an instanced scene so it can be instanced again during load.
@@ -25,6 +29,7 @@ func save_game():
 		# Store the save dictionary as a new line in the save file.
 		save_game_file.store_line(JSON.stringify(node_data))
 	save_game_file.close()
+	return true
 
 
 func load_game():

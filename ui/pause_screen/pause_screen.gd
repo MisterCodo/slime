@@ -10,6 +10,7 @@ var paused: bool = false:
 		visible = paused
 		if paused:
 			$Center/Buttons/Resume.grab_focus()
+			$Center/Buttons/Save/Label.text = "Save"
 
 
 func _unhandled_input(event):
@@ -22,7 +23,11 @@ func _on_resume_pressed():
 
 
 func _on_save_pressed():
-	Global.save_game()
+	var save_success = Global.save_game()
+	if save_success:
+		$Center/Buttons/Save/Label.text = "Saved"
+	else:
+		$Center/Buttons/Save/Label.text = "Save failed"
 
 
 func _on_quit_button_pressed():
