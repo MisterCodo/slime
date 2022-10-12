@@ -3,7 +3,7 @@ extends Node
 
 class SaveFileOverview:
 	var game_name = ""
-	var save_file = ""
+	var save_file = "user://save_2697073232.json"
 	var save_datetime = Time.get_datetime_string_from_system(false, false)
 	
 	func save():
@@ -57,8 +57,8 @@ func save_game():
 
 
 func load_game():
+	# Generate new game if no save_file defined yet.
 	if save_file_overview.save_file.is_empty():
-		# New game
 		save_file_overview.game_name = "Alice" #TODO: assign proper value when a new game is created.
 		var rand=RandomNumberGenerator.new()
 		rand.randomize()
@@ -71,31 +71,77 @@ func load_game():
 		print(save_file_overview.save_file)
 		return true
 	
-	# Load data from disk
-	if not save_file_exists(save_file_overview.save_file):
-		push_error("Error, save file not found")
+	# Load game data from disk and set game status.
+	var game_overview = load_game_from_file(save_file_overview.save_file, false)
+	if game_overview == null:
 		return false
 	
-	# We need to revert the game state so we're not cloning objects
-	# during loading. We will accomplish this by deleting saveable objects.
-	var save_nodes = get_tree().get_nodes_in_group("Persist")
-	for i in save_nodes:
-		i.queue_free()
-	
-	# Load the file
+	save_file_overview = game_overview
+	return true
+
+
+func save_file_exists(filename):
 	var save_game_file = File.new()
-	var err = save_game_file.open(save_file_overview.save_file, File.READ)
+	return save_game_file.file_exists(filename)
+
+
+func list_save_files():
+	# Iterates through files and checks if it's a save file.
+	var dir = Directory.new()
+	var err = dir.open("user://")
 	if err != OK:
-		push_error("Could not open save file %s. Error %d" % [save_file_overview.save_file, err])
-		return false
+		push_error("An error occurred when trying to access save files path. Error %d" % [err])
+		return
+	
+	var regex = RegEx.new()
+	regex.compile("^save_\\d+\\.json$")
+	var save_files = []
+	dir.list_dir_begin()
+	var file_name = dir.get_next()
+	while file_name != "":
+		if not dir.current_is_dir():
+			var regex_match = regex.search(file_name)
+			if regex_match:
+				print("Save file: " + file_name)
+				var tmp = load_game_from_file("user://" + file_name, true)
+				if tmp != null:
+					save_files.append(tmp)
+		file_name = dir.get_next()
+	return save_files
+
+
+func load_game_from_file(file_name, only_overview):
+	# Verify save file actually exists on disk.
+	if not save_file_exists(file_name):
+		push_error("Error, save file not found")
+		return null
+	
+	# Open save file.
+	var save_game_file = File.new()
+	var err = save_game_file.open(file_name, File.READ)
+	if err != OK:
+		push_error("Could not open save file %s. Error %d" % [file_name, err])
+		return null
 	
 	# Load the overview details.
 	var node_line = save_game_file.get_line()
 	if node_line.is_empty():
-		push_error("Empty save file %s" % [save_file_overview.save_file])
-		return false
-	var overview_data = JSON.parse_string(node_line)
-	save_file_overview.stow(overview_data)
+		push_error("Empty save file %s" % [file_name])
+		save_game_file.close()
+		return null
+	
+	var game_overview = SaveFileOverview.new()
+	game_overview.stow(JSON.parse_string(node_line))
+	
+	# If function call only asks for overview details then don't set the game status.
+	if only_overview:
+		save_game_file.close()
+		return game_overview
+	
+	# Revert game state so we're not cloning objects during loading.
+	var save_nodes = get_tree().get_nodes_in_group("Persist")
+	for i in save_nodes:
+		i.queue_free()
 	
 	# Process remaining lines to restore persistent objects.
 	node_line = save_game_file.get_line()
@@ -117,29 +163,4 @@ func load_game():
 			new_object.set(i, node_data[i])
 		
 	save_game_file.close()
-	return true
-
-
-func save_file_exists(filename):
-	var save_game_file = File.new()
-	return save_game_file.file_exists(filename)
-
-
-func list_save_files():
-	# Iterates through files and checks if it's a save file
-	var dir = Directory.new()
-	var err = dir.open("user://")
-	if err != OK:
-		push_error("An error occurred when trying to access save files path. Error %d" % [err])
-		return
-	
-	var regex = RegEx.new()
-	regex.compile("^save_\\d+\\.json$")		
-	dir.list_dir_begin()
-	var file_name = dir.get_next()
-	while file_name != "":
-		if not dir.current_is_dir():
-			var regex_match = regex.search(file_name)
-			if regex_match:
-				print("Save file: " + file_name)
-		file_name = dir.get_next()
+	return game_overview
