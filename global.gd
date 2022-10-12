@@ -3,7 +3,7 @@ extends Node
 
 class SaveFileOverview:
 	var game_name = ""
-	var save_file = "user://save_2697073232.json"
+	var save_file = ""
 	var save_datetime = Time.get_datetime_string_from_system(false, false)
 	
 	
@@ -94,16 +94,17 @@ func sort_save_files_descending(a, b):
 
 
 func list_save_files():
+	var save_files = []
+	
 	# Iterates through files and checks if it's a save file.
 	var dir = Directory.new()
 	var err = dir.open("user://")
 	if err != OK:
 		push_error("An error occurred when trying to access save files path. Error %d" % [err])
-		return
+		return save_files
 	
 	var regex = RegEx.new()
 	regex.compile("^save_\\d+\\.json$")
-	var save_files = []
 	dir.list_dir_begin()
 	var file_name = dir.get_next()
 	while file_name != "":
