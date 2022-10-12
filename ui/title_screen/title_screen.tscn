@@ -18,24 +18,28 @@ grow_vertical = 2
 script = ExtResource("1_m0g57")
 
 [node name="Menu" type="VBoxContainer" parent="."]
+layout_mode = 0
 offset_left = 100.0
 offset_top = 80.0
 offset_right = 1820.0
 offset_bottom = 1000.0
 
 [node name="Logo" type="TextureRect" parent="Menu"]
+layout_mode = 2
 offset_right = 1720.0
 offset_bottom = 100.0
 texture = ExtResource("2_7bst2")
 stretch_mode = 3
 
 [node name="Center" type="HBoxContainer" parent="Menu"]
+layout_mode = 2
 offset_top = 104.0
 offset_right = 1720.0
 offset_bottom = 920.0
 size_flags_vertical = 3
 
 [node name="Buttons" type="VBoxContainer" parent="Menu/Center"]
+layout_mode = 2
 offset_top = 282.0
 offset_right = 1720.0
 offset_bottom = 534.0
@@ -43,12 +47,14 @@ size_flags_horizontal = 3
 size_flags_vertical = 4
 
 [node name="NewGame" parent="Menu/Center/Buttons" instance=ExtResource("3_cfqpm")]
+layout_mode = 2
 offset_bottom = 60.0
 focus_neighbor_top = NodePath("../Quit")
 focus_neighbor_bottom = NodePath("../Load")
 flat = false
 
 [node name="Load" parent="Menu/Center/Buttons" instance=ExtResource("4_qhlj6")]
+layout_mode = 2
 offset_top = 64.0
 offset_bottom = 124.0
 focus_neighbor_top = NodePath("../NewGame")
@@ -56,6 +62,7 @@ focus_neighbor_bottom = NodePath("../Options")
 flat = false
 
 [node name="Options" parent="Menu/Center/Buttons" instance=ExtResource("5_ohu8a")]
+layout_mode = 2
 offset_top = 128.0
 offset_bottom = 188.0
 focus_neighbor_top = NodePath("../Load")
@@ -63,6 +70,7 @@ focus_neighbor_bottom = NodePath("../Quit")
 flat = false
 
 [node name="Quit" parent="Menu/Center/Buttons" instance=ExtResource("6_qbfj5")]
+layout_mode = 2
 offset_top = 192.0
 offset_bottom = 252.0
 focus_neighbor_top = NodePath("../Options")
@@ -70,6 +78,7 @@ focus_neighbor_bottom = NodePath("../NewGame")
 flat = false
 
 [node name="Fade" parent="." instance=ExtResource("7_01r1b")]
+layout_mode = 1
 
 [connection signal="pressed" from="Menu/Center/Buttons/NewGame" to="." method="_on_new_game_pressed"]
 [connection signal="pressed" from="Menu/Center/Buttons/Load" to="." method="_on_load_pressed"]
