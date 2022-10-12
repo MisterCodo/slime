@@ -6,6 +6,7 @@ class SaveFileOverview:
 	var save_file = "user://save_2697073232.json"
 	var save_datetime = Time.get_datetime_string_from_system(false, false)
 	
+	
 	func save():
 		var save_dict = {
 			"game_name": game_name,
@@ -13,6 +14,7 @@ class SaveFileOverview:
 			"save_datetime": save_datetime
 		}
 		return save_dict
+	
 	
 	func stow(data):
 		game_name = data["game_name"]
@@ -85,6 +87,12 @@ func save_file_exists(filename):
 	return save_game_file.file_exists(filename)
 
 
+func sort_save_files_descending(a, b):
+	if Time.get_unix_time_from_datetime_string(a.save_datetime) > Time.get_unix_time_from_datetime_string(b.save_datetime):
+		return true
+	return false
+
+
 func list_save_files():
 	# Iterates through files and checks if it's a save file.
 	var dir = Directory.new()
@@ -107,6 +115,7 @@ func list_save_files():
 				if tmp != null:
 					save_files.append(tmp)
 		file_name = dir.get_next()
+	save_files.sort_custom(sort_save_files_descending)
 	return save_files
 
 
