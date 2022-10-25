@@ -1,14 +1,11 @@
 extends Control
 
 
-func _ready():
-	$Menu/Center/Buttons/NewGame.grab_focus()
-
-
 func _on_new_game_pressed():
 #	get_tree().change_scene_to_file("res://ui/title_screen/scenes/new_game.tscn")
 	$Fade.fade()
 	# fade emits a signal when done, see _on_fade_fade_finished() func below
+
 
 func _on_load_pressed():
 	get_tree().change_scene_to_file("res://ui/title_screen/scenes/load_game.tscn")
