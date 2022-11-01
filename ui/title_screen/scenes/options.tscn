@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://pdio50di0scj"]
 
-[ext_resource type="PackedScene" uid="uid://bjih6yilsvg73" path="res://ui/title_screen/scenes/new_game.tscn" id="1_k344d"]
+[ext_resource type="PackedScene" uid="uid://bjih6yilsvg73" path="res://ui/title_screen/scenes/base.tscn" id="1_k344d"]
 [ext_resource type="Script" path="res://ui/title_screen/scenes/options.gd" id="2_q4xne"]
 
 [node name="Options" instance=ExtResource("1_k344d")]
