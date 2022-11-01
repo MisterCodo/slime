@@ -1,12 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://c8xhobwdh68r0"]
+[gd_scene load_steps=4 format=3 uid="uid://c8xhobwdh68r0"]
 
+[ext_resource type="StyleBox" uid="uid://df0urijwyqd4g" path="res://themes/not_selected_menu_button.tres" id="1_h8ypw"]
 [ext_resource type="Script" path="res://ui/title_screen/game_overview_button.gd" id="1_v503g"]
+[ext_resource type="StyleBox" uid="uid://bjd1p475ivl8k" path="res://themes/selected_menu_button.tres" id="2_yrh4y"]
 
 [node name="GameOverview" type="Button"]
 custom_minimum_size = Vector2i(200, 48)
 offset_right = 8.0
 offset_bottom = 8.0
-flat = true
+theme_override_styles/normal = ExtResource("1_h8ypw")
+theme_override_styles/hover = ExtResource("1_h8ypw")
+theme_override_styles/pressed = ExtResource("2_yrh4y")
+theme_override_styles/focus = ExtResource("2_yrh4y")
 script = ExtResource("1_v503g")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
