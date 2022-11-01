@@ -1,22 +1,28 @@
-[gd_scene load_steps=2 format=3 uid="uid://pdio50di0scj"]
+[gd_scene load_steps=3 format=3 uid="uid://pdio50di0scj"]
 
 [ext_resource type="PackedScene" uid="uid://bjih6yilsvg73" path="res://ui/title_screen/scenes/new_game.tscn" id="1_k344d"]
+[ext_resource type="Script" path="res://ui/title_screen/scenes/options.gd" id="2_q4xne"]
 
 [node name="Options" instance=ExtResource("1_k344d")]
+script = ExtResource("2_q4xne")
 
 [node name="CenterContainer" parent="." index="0"]
-layout_mode = 3
+layout_mode = 1
 
 [node name="VBoxContainer" parent="CenterContainer" index="0"]
-layout_mode = 3
-offset_left = 904.0
-offset_right = 1015.0
+layout_mode = 2
 
 [node name="Label" parent="CenterContainer/VBoxContainer" index="0"]
-layout_mode = 3
-offset_right = 111.0
+layout_mode = 2
 text = "Options Scene"
 
 [node name="Back" parent="CenterContainer/VBoxContainer" index="1"]
-layout_mode = 3
-offset_right = 111.0
+layout_mode = 2
+start_focused = true
+
+[node name="Label" parent="CenterContainer/VBoxContainer/Back" index="0"]
+text = "Back"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]
+
+[editable path="CenterContainer/VBoxContainer/Back"]

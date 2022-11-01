@@ -2,7 +2,6 @@ extends Control
 
 
 func _ready():
-	$CenterContainer/VBoxContainer/Back.grab_focus()
 	var save_files = Global.list_save_files()
 	var placeholder = $CenterContainer/VBoxContainer/VBoxContainer
 	var button_pck = preload("res://ui/title_screen/game_overview_button.tscn")

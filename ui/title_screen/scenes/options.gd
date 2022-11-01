@@ -1,8 +1,4 @@
-extends Control
-
-
-func _ready():
-	$CenterContainer/VBoxContainer/Back.grab_focus()
+extends Node
 
 
 func _on_back_pressed():
