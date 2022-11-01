@@ -8,6 +8,7 @@ class SaveFileOverview:
 	
 	
 	func save():
+		save_datetime = Time.get_datetime_string_from_system(false, false)
 		var save_dict = {
 			"game_name": game_name,
 			"save_file": save_file,
